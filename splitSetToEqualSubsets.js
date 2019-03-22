@@ -7,22 +7,24 @@ function hasEqualSubsets(a) {
         return false;
     }
 
-    return canGetSum(a, sum / 2, 0, a.length);
+    return canGetSum(a, sum / 2, 0, a.length, {});
 }
 
-function canGetSum(a, x, p, n) {
+function canGetSum(a, x, p, n, memo) {
+    if (memo[x])
+        return memo[x];
     if (x == 0) {
-        return true;
+        memo[x] = true;
     } else {
+        memo[x] = false;
         for (let i = p; i < n; i++) {
-            if (canGetSum(a, x - a[i], i + 1, n)) {
-                return true;
+            if (canGetSum(a, x - a[i], i + 1, n, memo)) {
+                memo[x] = true;
+                break;
             }
         }
     }
-    return false;
+    return memo[x];
 }
 
-const set = [5, 7, 19, 7]
-
-console.log(hasEqualSubsets(set));
+console.log(hasEqualSubsets([2, 4, 5, 6, 9]));
