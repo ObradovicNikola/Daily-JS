@@ -1,3 +1,6 @@
+//It is always better to generate permutations of array of integer
+//and use that array as array of indexes
+//since, swaping large files can be expensive
 function swap(a, p, i) {
     let tmp = a[p];
     a[p] = a[i];
