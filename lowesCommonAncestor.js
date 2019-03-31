@@ -7,6 +7,18 @@ class Node {
     }
 }
 
+/* efficient solution if we assume that nodes are in the tree
+function lowestCommonAncestor(root, node1, node2) {
+	if (root.val > node1.val && root.val > node2.val) {
+		return lowestCommonAncestor(root.left, node1, node2);
+	} else if (root.val < node1.val && root.val < node2.val) {
+		return lowestCommonAncestor(root.right, node1, node2);
+	} else {
+		return root;
+	}
+};
+*/
+
 function isInTree(root, x) {
     if (!root)
         return false;
