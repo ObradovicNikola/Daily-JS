@@ -20,4 +20,4 @@ function helper(n, hash) {
     return res;
 }
 
-console.log(howManySquares(100));
+console.log(howManySquares(21));
